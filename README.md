@@ -1,20 +1,20 @@
- Monitor do Depósito — Projeto IoT
+# Monitor do Depósito — Projeto IoT
 
 Projeto desenvolvido como atividade final da disciplina de Internet das Coisas (IoT), utilizando ESP32 e sensor DHT22 para monitorar a temperatura e a umidade de um ambiente.
 
 O sistema identifica temperaturas acima do limite estabelecido, ativa um alerta visual por meio de um LED e envia os dados coletados para a plataforma ThingSpeak, permitindo o acompanhamento remoto das condições do ambiente.
 
- Objetivo do projeto
+## Objetivo do projeto
 
 Desenvolver um sistema de monitoramento de temperatura e umidade para um depósito, permitindo identificar situações de temperatura elevada e disponibilizar os dados para acompanhamento remoto.
 
- Problema que o projeto procura resolver
+## Problema que o projeto procura resolver
 
 Em depósitos, o aumento da temperatura pode comprometer produtos e materiais armazenados. Sem um monitoramento constante, uma alteração nas condições do ambiente pode passar despercebida.
 
 O Monitor do Depósito busca reduzir esse problema por meio de leituras periódicas, um alerta local e o envio das informações para uma plataforma em nuvem.
 
- Componentes utilizados
+## Componentes utilizados
 
 | Componente | Função |
 |---|---|
@@ -23,13 +23,13 @@ O Monitor do Depósito busca reduzir esse problema por meio de leituras periódi
 | LED vermelho | Indicação visual de temperatura elevada. |
 | Resistor de 220 Ω | Limitação da corrente do LED. |
 
- Funcionamento do sistema
+## Funcionamento do sistema
 
 O sensor DHT22 realiza a leitura da temperatura e da umidade do ambiente. A ESP32 recebe essas informações, verifica se a leitura é válida e avalia a temperatura em relação ao limite configurado.
 
 Os dados são enviados pela rede Wi-Fi utilizando o protocolo HTTP para a plataforma ThingSpeak, onde podem ser visualizados em gráficos.
 
- Fluxo de funcionamento
+### Fluxo de funcionamento
 
 DHT22 → ESP32 → Wi-Fi → HTTP → ThingSpeak
 
@@ -38,7 +38,7 @@ DHT22 → ESP32 → Wi-Fi → HTTP → ThingSpeak
 - Comunicação: a ESP32 envia os dados pela rede Wi-Fi utilizando HTTP.
 - Aplicação: o ThingSpeak recebe e apresenta as informações em gráficos.
 
- Limite de temperatura e funcionamento do alarme
+## Limite de temperatura e funcionamento do alarme
 
 O limite de temperatura configurado no projeto é de **28 °C**.
 
@@ -50,7 +50,7 @@ Foi utilizada uma lógica de histerese, com dois limites diferentes para ligar e
 
 O sistema realiza leituras a cada 2 segundos e envia os dados para o ThingSpeak a cada 20 segundos.
 
- Tecnologias utilizadas
+## Tecnologias utilizadas
 
 - Linguagem C++ (ambiente Arduino).
 - ESP32.
@@ -66,7 +66,7 @@ O sistema realiza leituras a cada 2 segundos e envia os dados para o ThingSpeak 
 - `DHTesp.h`: comunicação com o sensor DHT22.
 - `ThingSpeak.h`: envio de informações para a plataforma ThingSpeak.
 
- Testes realizados
+## Testes realizados
 
 Foram realizados três testes para verificar o comportamento do sistema em diferentes condições de temperatura.
 
@@ -84,16 +84,16 @@ A plataforma recebeu quatro registros na captura analisada, apresentando tempera
 
 Os testes demonstraram o funcionamento da leitura do sensor, da lógica de acionamento do alarme e da comunicação com a plataforma em nuvem.
 
- Links do projeto
+## Links do projeto
 
 - Simulação no Wokwi: https://wokwi.com/projects/480074379308578817
 - Canal ThingSpeak: https://thingspeak.com/channels/3570079
 
- Segurança
+## Segurança
 
 A chave de escrita da API do ThingSpeak não deve ser publicada no repositório. Antes de disponibilizar o projeto publicamente, as credenciais reais devem ser removidas do código e substituídas por valores de exemplo.
 
- Autor
+## Autor
 
 **Artur Lobo**
 
