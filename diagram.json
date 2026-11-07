@@ -1,0 +1,49 @@
+
+{
+  "version": 1,
+  "author": "Artur Lobo",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht",
+      "top": -120,
+      "left": 220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led",
+      "top": 20,
+      "left": 250,
+      "attrs": {
+        "color": "red"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 100,
+      "left": 220,
+      "attrs": {
+        "value": "220"
+      }
+    }
+  ],
+  "connections": [
+    ["dht:VCC", "esp:3V3", "red", []],
+    ["dht:SDA", "esp:15", "green", []],
+    ["dht:GND", "esp:GND.1", "black", []],
+    ["esp:2", "r1:1", "green", []],
+    ["r1:2", "led:A", "green", []],
+    ["led:C", "esp:GND.2", "black", []]
+  ],
+  "dependencies": {}
+}
